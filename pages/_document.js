@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { extractCritical } from 'emotion-server';
+
 export default class MyDocument extends Document {
  static getInitialProps({ renderPage }) {
   // for emotion-js
@@ -8,6 +9,7 @@ export default class MyDocument extends Document {
   const styles = extractCritical(page.html);
   return { ...page, ...styles };
  }
+
  constructor(props) {
   // for emotion-js
   super(props);
@@ -16,6 +18,7 @@ export default class MyDocument extends Document {
    __NEXT_DATA__.ids = ids;
   }
  }
+
  render() {
   return (
    <html lang="en">
